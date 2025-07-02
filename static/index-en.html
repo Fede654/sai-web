@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAI - Fire Alert System</title>
+
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('/images/wildfire-camera-2.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+	/* Overlay Styles */
+	.overlay {
+	    /* Create a layered background with both solid and gradient overlays */
+	    background: linear-gradient(
+	        to bottom,
+	        rgba(26, 26, 26, 0.4) 0%,      /* Start with slight darkness at top */
+	        rgba(26, 26, 26, 0.6) 80%,      /* Increase darkness gradually */
+	        rgba(26, 26, 26, 0.8) 85%,      /* Continue darkening */
+	        rgba(26, 26, 26, 0.9) 90%,      /* Near solid */
+	        rgba(26, 26, 26, 1) 100%        /* Completely solid at bottom */
+	    );
+	    min-height: 100vh;
+	    width: 100%;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	    padding: 40px 20px;
+	    box-sizing: border-box;
+	}
+        /* Heading Styles */
+        h1 {
+            font-size: 5em;
+            margin: 0;
+            animation: fadeInDown 1s ease-in-out;
+        }
+        /* Paragraph Styles */
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        /* Button Styles */
+        button {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff5722;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            animation: fadeInUp 1.5s ease-in-out;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            animation: zoomIn 0.5s ease-in-out;
+            max-width: 600px;
+            text-align: left;
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.7); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #fff;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            p { font-size: 1.2em; }
+            button { padding: 10px 20px; font-size: 0.9em; }
+        }
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .lang-switch a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+        .lang-switch a.active {
+            color: #ff5722;
+            font-weight: bold;
+        }
+        .lang-switch span {
+            color: #fff;
+        }
+    /* Copyright legend style */
+    .copyright {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8em;
+        z-index: 10;
+    }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <a href="index.html">ES</a>
+        <span>/</span>
+        <a href="index-en.html" class="active">EN</a>
+    </div>
+
+    <div class="overlay">
+        <h1>SAI</h1>
+        <p>Fire Alert System</p>
+        <div class="button-container">
+            <button class="btn btn-learn" id="learnMoreBtn">Learn More</button>
+            <button class="btn btn-video" onclick="window.location.href='video-en.html'">See Impact</button>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <h2>About Us</h2>
+            <p>
+		This early stage wilfire alert system is in prototype phase, under testing in Córdoba Argentina.
+            </p>
+            <p>
+		Interested parties can contact AlterMundi for details.
+            </p>
+        </div>
+    </div>
+    <div class="copyright">
+        CC BY-SA 4.0 2025 AlterMundi
+    </div>
+    <!-- Embedded JavaScript -->
+    <script>
+        // Get elements
+        const modal = document.getElementById('modal');
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+        const closeBtn = document.getElementById('closeBtn');
+	// Open modal on button click
+        learnMoreBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        // Close modal on 'X' click
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside of modal content
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SAI - Impacto | Sistema de Alerta de Incendios</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('/images/wildfire-camera-2.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        /* Overlay Styles */
+        .overlay {
+            /* Create a layered background with both solid and gradient overlays */
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 26, 26, 0.4) 0%,      /* Start with slight darkness at top */
+                rgba(26, 26, 26, 0.6) 80%,      /* Increase darkness gradually */
+                rgba(26, 26, 26, 0.8) 85%,      /* Continue darkening */
+                rgba(26, 26, 26, 0.9) 90%,      /* Near solid */
+                rgba(26, 26, 26, 1) 100%        /* Completely solid at bottom */
+            );
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; 
+            box-sizing: border-box;
+        }
+        /* Video Container Styles */
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+            margin: 20px 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Navigation Back Button */
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .nav-back a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-back a:hover {
+            background-color: rgba(255, 87, 34, 0.8);
+        }
+
+        /* Heading and Text Styles */
+        .video-title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .video-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .lang-switch a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+        .lang-switch a.active {
+            color: #ff5722;
+            font-weight: bold;
+        }
+        .lang-switch span {
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .video-title { font-size: 2em; }
+            .video-description { font-size: 1em; }
+            .nav-back { 
+                top: 10px;
+                left: 10px;
+            }
+            .nav-back a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="lang-switch">
+            <a href="video.html" class="active">ES</a>
+            <span>/</span>
+            <a href="video-en.html">EN</a>
+        </div>
+
+        <div class="nav-back">
+            <a href="index.html">← Volver</a>
+        </div>
+
+        <div class="video-container">
+            <h1 class="video-title">Impacto del Sistema SAI</h1>
+            
+            <div class="video-wrapper">
+		<iframe width="930" height="523" src="https://www.youtube.com/embed/N5ROcdZJ3EI?&cc_lang_pref=es" title="Sistema de Alerta Temprana Global" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-description">
+                <p>Descubre cómo el Sistema de Alerta de Incendios podría transformar la protección de nuestros bosques a través del uso tecnología innovadora y alerta temprana.</p>
+	    <p style='font-size: 0.8em'>
+	        CC BY-SA 4.0 2025 AlterMundi
+	    </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
