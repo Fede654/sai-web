@@ -106,9 +106,9 @@ npx serve static -p 8080
 
 ### Molinari Prototype (June 2024)
 - **Location**: Molinari, Córdoba Province, Argentina
-- **Event**: Real wildfire incident in mid-June 2024
-- **Result**: System issued first positive alarm, validating functionality
-- **Impact**: Proof of concept for early detection capabilities
+- **Event**: Real system tests in mid-June 2024
+- **Result**: System issued first positive alarm during field testing
+- **Impact**: Proof of concept for early detection capabilities under real conditions
 
 ### Partner Network
 - 🏛️ **INTI** - Instituto Nacional de Tecnología Industrial

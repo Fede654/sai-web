@@ -557,6 +557,250 @@
             color: var(--accent-color);
         }
         
+        /* Validation Section */
+        .validation {
+            padding: 100px 0;
+            background: var(--section-bg-alt);
+            position: relative;
+        }
+        
+        .validation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.05), rgba(255, 193, 7, 0.03));
+        }
+        
+        .validation .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .validation-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .validation h2 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .validation h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .validation p {
+            font-size: 1.25em;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .validation p strong {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        
+        .real-images {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .image-placeholder {
+            background: var(--section-bg);
+            border: 2px dashed var(--border-color);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 500px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--primary-color));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 87, 34, 0.2);
+        }
+        
+        .image-placeholder:hover::before {
+            opacity: 0.3;
+        }
+        
+        .placeholder-icon {
+            font-size: 4em;
+            display: block;
+            margin-bottom: 20px;
+            filter: grayscale(20%) sepia(20%) hue-rotate(10deg);
+        }
+        
+        .image-placeholder p {
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .image-placeholder small {
+            color: var(--text-muted);
+            font-size: 1em;
+            font-style: italic;
+        }
+        
+        /* Validation Images Grid */
+        .validation-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .validation-image {
+            background: var(--section-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .validation-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 87, 34, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .validation-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .validation-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-caption {
+            padding: 25px;
+        }
+        
+        .image-caption h4 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .image-caption p {
+            color: var(--text-muted);
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Validation Stats */
+        .validation-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-badge {
+            background: linear-gradient(135deg, var(--section-bg), var(--section-bg-alt));
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            min-width: 180px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .stat-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.2);
+        }
+        
+        .stat-badge:hover::before {
+            opacity: 1;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-description {
+            display: block;
+            font-size: 0.9em;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
         /* Subscription Section */
         .subscription {
             padding: 100px 0;
@@ -786,6 +1030,45 @@
             border-color: var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(255, 87, 34, 0.3);
+        }
+        
+        /* Emergency Contacts */
+        .emergency-contacts {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .emergency-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .emergency-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .emergency-contact:hover {
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+        
+        .emergency-icon {
+            font-size: 1.2em;
         }
         
         /* Footer */
@@ -1034,9 +1317,19 @@
             }
             
             .stats-grid,
-            .steps {
+            .steps,
+            .validation-images-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+            
+            .validation-stats {
+                gap: 20px;
+            }
+            
+            .stat-badge {
+                min-width: 150px;
+                padding: 25px 20px;
             }
             
             .stat-item,
@@ -1260,11 +1553,6 @@
                     <h3>103,309</h3>
                     <p>Hectáreas afectadas en Córdoba</p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-icon">⏱️</div>
-                    <h3>5 min</h3>
-                    <p>Frecuencia de captura de imágenes</p>
-                </div>
             </div>
         </div>
     </section>
@@ -1305,7 +1593,47 @@
                 <h2>Nuestra Misión</h2>
                 <p><strong>Alertar temprano, actuar pronto, reducir los daños.</strong></p>
                 <p>Desarrollamos una solución tecnológica que permite detectar incendios en su etapa inicial, facilitando una respuesta inmediata y reduciendo significativamente los daños ambientales y económicos.</p>
-                <p>Nuestro prototipo en Molinari, Córdoba, ya emitió su primera alarma positiva durante un incendio real, validando la funcionalidad del sistema.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="validation" id="validacion">
+        <div class="container">
+            <div class="validation-content">
+                <h2>Validación en Tiempo Real</h2>
+                <p><strong>¡PRIMERAS PRUEBAS EN TIEMPO REAL!</strong></p>
+                <p>Nuestro prototipo, instalado en la localidad de Molinari (provincia de Córdoba), durante las <strong>pruebas reales del sistema</strong> a mediados de junio emitió su <strong>primera alarma positiva</strong>, validando la funcionalidad del sistema en condiciones reales de campo.</p>
+                
+                <div class="real-images">
+                    <div class="validation-images-grid">
+                        <div class="validation-image">
+                            <img src="/images/molinari-test-1.jpg" alt="Primera imagen de prueba del sistema SAI en Molinari" loading="lazy">
+                            <div class="image-caption">
+                                <h4>Primera Detección Exitosa</h4>
+                                <p>Sistema SAI detectando señales de humo durante las pruebas en Molinari, Córdoba</p>
+                            </div>
+                        </div>
+                        <div class="validation-image">
+                            <img src="/images/molinari-test-2.jpg" alt="Segunda imagen de prueba del sistema SAI en Molinari" loading="lazy">
+                            <div class="image-caption">
+                                <h4>Confirmación Visual</h4>
+                                <p>Imagen capturada por las cámaras del nodo durante la validación del sistema</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="validation-stats">
+                        <div class="stat-badge">
+                            <span class="stat-number">360°</span>
+                            <span class="stat-label">cobertura</span>
+                            <span class="stat-description">visión completa</span>
+                        </div>
+                        <div class="stat-badge">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">redes neuronales</span>
+                            <span class="stat-description">doble confirmación</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1409,6 +1737,24 @@
                         0800-888-FUEGO
                     </a>
                 </div>
+                
+                <div class="emergency-contacts">
+                    <h3 style="color: var(--primary-color); margin: 40px 0 20px;">🚨 En caso de incendio:</h3>
+                    <div class="emergency-grid">
+                        <a href="tel:08008883834" class="emergency-contact">
+                            <span class="emergency-icon">🔥</span>
+                            <span>0800-888-FUEGO</span>
+                        </a>
+                        <a href="tel:911" class="emergency-contact">
+                            <span class="emergency-icon">👮</span>
+                            <span>911 (Policía)</span>
+                        </a>
+                        <a href="tel:100" class="emergency-contact">
+                            <span class="emergency-icon">🚒</span>
+                            <span>100 (Bomberos)</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1429,6 +1775,22 @@
     </footer>
 
     <script>
+        // Ensure page starts at top on load/reload
+        window.addEventListener('beforeunload', function() {
+            window.scrollTo(0, 0);
+        });
+        
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
+        });
+        
+        // Force scroll to top on page refresh
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
