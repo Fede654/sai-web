@@ -1,0 +1,11 @@
+{
+  "name": "sai-website",
+  "version": "1.0.0",
+  "description": "SAI Fire Alert System Website",
+  "scripts": {
+    "start": "cd static && python3 -m http.server 8080 --bind 0.0.0.0",
+    "configure": "node scripts/configure-webhook.js",
+    "build": "node scripts/build-config.js"
+  },
+  "license": "CC-BY-SA-4.0"
+}

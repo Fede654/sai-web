@@ -1,0 +1,16 @@
+{
+  "webhook": {
+    "url": "https://ai.altermundi.net/pipelines/webhook-test/web-form-sai",
+    "timeout": 10000,
+    "retries": 3
+  },
+  "testing": {
+    "enabled": false,
+    "autoFillFields": true,
+    "showTestBanner": true
+  },
+  "meta": {
+    "lastUpdated": "2025-01-22T20:40:00.000Z",
+    "version": "1.0.0"
+  }
+}

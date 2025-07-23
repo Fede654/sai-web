@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "🚀 HTTP Server",
+            "type": "python",
+            "request": "launch",
+            "module": "http.server",
+            "args": ["8080", "--bind", "0.0.0.0"],
+            "cwd": "${workspaceFolder}/static",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "⚙️ Configure Webhook",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/configure-webhook.js",
+            "console": "integratedTerminal"
+        }
+    ]
+}

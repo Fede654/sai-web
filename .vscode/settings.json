@@ -1,0 +1,28 @@
+{
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "files.associations": {
+        "*.html": "html",
+        "*.md": "markdown"
+    },
+    "html.format.enable": true,
+    "html.format.indentInnerHtml": true,
+    "html.format.wrapLineLength": 120,
+    "emmet.includeLanguages": {
+        "html": "html"
+    },
+    "liveServer.settings.port": 8080,
+    "liveServer.settings.root": "/static",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "debug.console.fontSize": 14,
+    "debug.console.lineHeight": 20,
+    "workbench.colorCustomizations": {
+        "terminal.background": "#1e1e1e",
+        "terminal.foreground": "#d4d4d4"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/__pycache__": true
+    }
+}
