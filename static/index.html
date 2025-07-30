@@ -1649,7 +1649,10 @@
                     🧪 MODO PRUEBA ACTIVADO - Los campos se completarán con nombres de campo para validar la integración con Google Drive
                 </div>
                 
-                <form class="subscription-form" action="#" method="POST" data-webhook-url="https://ai.altermundi.net/pipelines/webhook-test/web-form-sai">
+                <form class="subscription-form" action="#" method="POST" data-api-endpoint="/api/submit-form">
+                    <!-- Honeypot field (hidden from users, bots will fill it) -->
+                    <input type="text" name="website" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" tabindex="-1" autocomplete="off">
+                    
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="localidad">Localidad *</label>
@@ -1854,6 +1857,16 @@
         // Initialize test mode on page load
         initTestMode();
         
+        // Show webhook URL in console for debugging
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.subscription-form');
+            const apiEndpoint = form ? form.getAttribute('data-api-endpoint') : 'Not found';
+            console.log('🔗 API endpoint configured:', apiEndpoint);
+            
+            // Track form load time for security validation
+            window.formLoadTime = Date.now();
+        });
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -1907,7 +1920,7 @@
             const btnText = submitBtn.querySelector('.btn-text');
             const btnLoading = submitBtn.querySelector('.btn-loading');
             const btnIcon = submitBtn.querySelector('.btn-icon');
-            const webhookUrl = this.getAttribute('data-webhook-url');
+            const apiEndpoint = this.getAttribute('data-api-endpoint') || '/api/submit-form';
             
             // Validate required fields
             const requiredFields = this.querySelectorAll('input[required]');
@@ -1939,9 +1952,9 @@
                 return;
             }
             
-            // Check if webhook URL is configured
-            if (!webhookUrl || webhookUrl === 'YOUR_N8N_WEBHOOK_URL_HERE') {
-                alert('Webhook URL no configurada. Por favor, configure la URL del webhook de n8n.');
+            // API endpoint is always available on same server
+            if (!apiEndpoint) {
+                alert('Error: API endpoint no configurado.');
                 return;
             }
             
@@ -1961,14 +1974,15 @@
                     data[key] = value;
                 }
                 
-                // Add metadata
+                // Add client metadata
                 data.timestamp = new Date().toISOString();
                 data.language = 'es';
                 data.source = 'sai-website';
                 data.userAgent = navigator.userAgent;
+                data.formLoadTime = window.formLoadTime || Date.now();
                 
-                // Send to webhook
-                const response = await fetch(webhookUrl, {
+                // Send to secure proxy endpoint
+                const response = await fetch(apiEndpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

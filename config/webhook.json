@@ -1,16 +1,20 @@
 {
   "webhook": {
-    "url": "https://ai.altermundi.net/pipelines/webhook-test/web-form-sai",
+    "url": "https://ai.altermundi.net/pipelines/webhook/web-form-sai",
     "timeout": 10000,
-    "retries": 3
+    "retries": 3,
+    "auth": {
+      "type": "api-key",
+      "key": "3tafmtmp313a8jSZMCZpCi5mbYgL6eVe"
+    }
   },
-  "testing": {
-    "enabled": false,
-    "autoFillFields": true,
-    "showTestBanner": true
+  "security": {
+    "honeypot": true,
+    "rateLimit": true,
+    "timestampValidation": true
   },
   "meta": {
-    "lastUpdated": "2025-01-22T20:40:00.000Z",
+    "lastUpdated": "2025-07-30T06:39:51.044Z",
     "version": "1.0.0"
   }
 }

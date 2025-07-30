@@ -22,7 +22,7 @@ function loadConfig() {
     }
 }
 
-function updateHtmlFile(filePath, webhookUrl) {
+function updateHtmlFile(filePath, webhookUrl, config) {
     try {
         let content = fs.readFileSync(filePath, 'utf8');
         
@@ -32,6 +32,31 @@ function updateHtmlFile(filePath, webhookUrl) {
         
         if (content.match(regex)) {
             content = content.replace(regex, newAttribute);
+            
+            // Add security configuration as data attributes
+            if (config.webhook.auth) {
+                const authRegex = /data-auth-key="[^"]*"/g;
+                const authAttribute = `data-auth-key="${config.webhook.auth.key}"`;
+                if (content.match(authRegex)) {
+                    content = content.replace(authRegex, authAttribute);
+                } else {
+                    // Add auth attribute to form tag
+                    content = content.replace(
+                        /(<form[^>]*data-webhook-url="[^"]*")/,
+                        `$1 ${authAttribute}`
+                    );
+                }
+            }
+            
+            // Add security flags
+            if (config.security) {
+                const securityAttr = `data-security='${JSON.stringify(config.security)}'`;
+                content = content.replace(
+                    /(<form[^>]*data-webhook-url="[^"]*"[^>]*)/,
+                    `$1 ${securityAttr}`
+                );
+            }
+            
             fs.writeFileSync(filePath, content, 'utf8');
             console.log(`✅ Updated ${path.basename(filePath)}`);
             return true;
@@ -68,7 +93,7 @@ function main() {
     HTML_FILES.forEach(filename => {
         const filePath = path.join(STATIC_DIR, filename);
         if (fs.existsSync(filePath)) {
-            if (updateHtmlFile(filePath, webhookUrl)) {
+            if (updateHtmlFile(filePath, webhookUrl, config)) {
                 successCount++;
             }
         } else {

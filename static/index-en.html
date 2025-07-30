@@ -1681,7 +1681,7 @@
                     🧪 TEST MODE ACTIVE - Fields will be populated with field names to validate Google Drive integration
                 </div>
                 
-                <form class="subscription-form" action="#" method="POST" data-webhook-url="https://ai.altermundi.net/pipelines/webhook-test/web-form-sai">
+                <form class="subscription-form" action="#" method="POST" data-webhook-url="https://ai.altermundi.net/pipelines/webhook/web-form-sai" data-auth-key="3tafmtmp313a8jSZMCZpCi5mbYgL6eVe" data-security='{"honeypot":true,"rateLimit":true,"timestampValidation":true}'>
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="city">City *</label>
@@ -1891,6 +1891,13 @@
         // Initialize test mode on page load
         initTestMode();
         
+        // Show webhook URL in console for debugging
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.subscription-form');
+            const webhookUrl = form ? form.getAttribute('data-webhook-url') : 'Not found';
+            console.log('🔗 Webhook URL configured:', webhookUrl);
+        });
+        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -1977,7 +1984,7 @@
             }
             
             // Check if webhook URL is configured
-            if (!webhookUrl || webhookUrl === 'YOUR_N8N_WEBHOOK_URL_HERE') {
+            if (!webhookUrl || webhookUrl === 'https://your-n8n-instance.com/webhook-test/sai-form') {
                 alert('Webhook URL not configured. Please configure the n8n webhook URL.');
                 return;
             }
@@ -2009,6 +2016,9 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        // Add auth if needed - uncomment and configure:
+                        // 'Authorization': 'Bearer YOUR_TOKEN',
+                        // 'X-API-Key': 'YOUR_API_KEY',
                     },
                     body: JSON.stringify(data)
                 });
