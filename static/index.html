@@ -144,6 +144,7 @@
             border: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .lang-switch:hover {
@@ -152,16 +153,23 @@
             border-color: var(--primary-color);
         }
         
-        .lang-switch a {
+        .lang-switch span {
             color: var(--text-secondary);
-            text-decoration: none;
             font-size: 0.9em;
             transition: color 0.3s;
         }
         
-        .lang-switch a.active {
+        .lang-switch span.active {
             color: var(--primary-color);
             font-weight: bold;
+        }
+        
+        /* Ensure mobile language switch visibility */
+        @media (max-width: 768px) {
+            .mobile-nav .lang-switch {
+                display: block !important;
+                margin-top: 25px !important;
+            }
         }
         
         /* Hero Section */
@@ -1364,7 +1372,8 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             z-index: 999;
-            padding-top: 100px;
+            padding: 80px 20px 40px;
+            overflow-y: auto;
         }
         
         .mobile-nav.active {
@@ -1372,15 +1381,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            padding-top: 120px;
         }
         
         .mobile-nav a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: 500;
-            margin: 20px 0;
-            padding: 15px 30px;
+            margin: 15px 0;
+            padding: 12px 25px;
             border-radius: 25px;
             transition: all 0.3s ease;
             text-align: center;
@@ -1786,10 +1796,10 @@
                     <span></span>
                     <span></span>
                 </div>
-                <div class="lang-switch">
-                    <a href="index.html" class="active">ES</a>
+                <div class="lang-switch" onclick="window.location.href='index-en.html'">
+                    <span class="active">ES</span>
                     <span>/</span>
-                    <a href="index-en.html">EN</a>
+                    <span>EN</span>
                 </div>
             </div>
         </div>
@@ -1802,10 +1812,10 @@
         <a href="#nosotros">Nosotros</a>
         <a href="#suscripcion">Suscripción</a>
         <a href="#contacto">Contacto</a>
-        <div class="lang-switch" style="margin-top: 40px;">
-            <a href="index.html" class="active">ES</a>
+        <div class="lang-switch" style="margin-top: 20px;" onclick="window.location.href='index-en.html'">
+            <span class="active">ES</span>
             <span>/</span>
-            <a href="index-en.html">EN</a>
+            <span>EN</span>
         </div>
     </nav>
 
