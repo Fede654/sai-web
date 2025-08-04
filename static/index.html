@@ -842,6 +842,12 @@
                 gap: 15px;
                 padding: 0 5%;
                 max-width: none;
+                margin-bottom: 30px; /* Add bottom margin to prevent overflow */
+            }
+            
+            /* Ensure how-it-works section has enough bottom padding */
+            .how-it-works {
+                padding-bottom: 100px;
             }
             
             .process-label {
@@ -1356,6 +1362,53 @@
             color: var(--text-light);
         }
         
+        /* Nosotros section mobile fixes */
+        @media (max-width: 768px) {
+            #nosotros .grid-2 {
+                gap: 30px;
+            }
+            
+            #nosotros h3 {
+                font-size: 1.5em !important;
+            }
+            
+            #nosotros .content-card--center {
+                padding: 25px 20px;
+            }
+            
+            #nosotros .grid-auto {
+                gap: 15px !important;
+            }
+            
+            #nosotros .grid-auto > div {
+                padding: 15px !important;
+                font-size: 0.9em;
+            }
+            
+            #nosotros .grid-auto h4 {
+                font-size: 1em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #nosotros .content-card--center {
+                padding: 20px 15px;
+            }
+            
+            #nosotros h3 {
+                font-size: 1.3em !important;
+                margin-bottom: 15px !important;
+            }
+            
+            #nosotros .grid-2 {
+                gap: 25px;
+            }
+            
+            #nosotros .grid-auto > div {
+                padding: 12px !important;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-content h1 {
