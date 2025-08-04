@@ -802,6 +802,70 @@
             }
         }
         
+        /* Process step labels */
+        .process-labels {
+            display: flex;
+            margin-top: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            height: 50px; /* Ensure space for labels */
+        }
+        
+        .process-label {
+            position: absolute;
+            width: 160px;
+            text-align: center;
+            margin-left: -80px; /* Center the 160px width */
+        }
+        
+        /* Position each label to align with SVG elements */
+        .process-label:nth-child(1) { left: 12.5%; }  /* Aligns with x="150" */
+        .process-label:nth-child(2) { left: 33.33%; } /* Aligns with x="400" */
+        .process-label:nth-child(3) { left: 54.17%; } /* Aligns with x="650" */
+        .process-label:nth-child(4) { left: 75%; }    /* Aligns with x="900" */
+        
+        .process-label p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.3;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Responsive process labels */
+        @media (max-width: 768px) {
+            .process-labels {
+                position: static;
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 5%;
+                max-width: none;
+            }
+            
+            .process-label {
+                position: static;
+                width: auto;
+                margin-left: 0;
+            }
+            
+            .process-label:nth-child(1),
+            .process-label:nth-child(2),
+            .process-label:nth-child(3),
+            .process-label:nth-child(4) {
+                left: auto;
+            }
+            
+            .process-label p {
+                font-size: 13px;
+                padding: 8px;
+                background: var(--background-light);
+                border-radius: 8px;
+                border: 1px solid var(--border-color);
+            }
+        }
+        
         /* Mission */
         .mission {
             padding: 80px 0;
@@ -1602,7 +1666,7 @@
             <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1em; color: var(--text-muted);">Nuestro sistema utiliza una red de nodos con cámaras de 360° y análisis de inteligencia artificial para detectar incendios en su etapa inicial, facilitando una respuesta inmediata y reduciendo significativamente los daños ambientales y económicos.</p>
             
             <div class="flow-diagram">
-                <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" class="process-flow">
+                <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" class="process-flow">
                     <!-- Definitions for gradients and filters -->
                     <defs>
                         <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1631,10 +1695,6 @@
                         <circle cx="150" cy="200" r="80" fill="url(#nodeGradient)" filter="url(#nodeShadow)" opacity="0.9"/>
                         <text x="150" y="190" text-anchor="middle" font-size="48" fill="white">📸</text>
                         <text x="150" y="230" text-anchor="middle" font-size="16" font-weight="600" fill="white">Captura</text>
-                        <text x="150" y="300" text-anchor="middle" font-size="14" fill="#4A5568" class="step-description">
-                            <tspan x="150" dy="0">4 cámaras =</tspan>
-                            <tspan x="150" dy="18">360° cada 5 min</tspan>
-                        </text>
                     </g>
                     
                     <!-- Arrow 1 -->
@@ -1648,10 +1708,6 @@
                         <circle cx="400" cy="200" r="80" fill="url(#nodeGradient)" filter="url(#nodeShadow)" opacity="0.9"/>
                         <text x="400" y="190" text-anchor="middle" font-size="48" fill="white">🤖</text>
                         <text x="400" y="230" text-anchor="middle" font-size="16" font-weight="600" fill="white">Análisis IA</text>
-                        <text x="400" y="300" text-anchor="middle" font-size="14" fill="#4A5568" class="step-description">
-                            <tspan x="400" dy="0">Detección de</tspan>
-                            <tspan x="400" dy="18">humo y fuego</tspan>
-                        </text>
                     </g>
                     
                     <!-- Arrow 2 -->
@@ -1665,10 +1721,6 @@
                         <circle cx="650" cy="200" r="80" fill="url(#nodeGradient)" filter="url(#nodeShadow)" opacity="0.9"/>
                         <text x="650" y="190" text-anchor="middle" font-size="48" fill="white">✅</text>
                         <text x="650" y="230" text-anchor="middle" font-size="16" font-weight="600" fill="white">Confirmación</text>
-                        <text x="650" y="300" text-anchor="middle" font-size="14" fill="#4A5568" class="step-description">
-                            <tspan x="650" dy="0">2da red neuronal</tspan>
-                            <tspan x="650" dy="18">reduce falsos +</tspan>
-                        </text>
                     </g>
                     
                     <!-- Arrow 3 -->
@@ -1682,10 +1734,6 @@
                         <circle cx="900" cy="200" r="80" fill="url(#nodeGradient)" filter="url(#nodeShadow)" opacity="0.9"/>
                         <text x="900" y="190" text-anchor="middle" font-size="48" fill="white">🚨</text>
                         <text x="900" y="230" text-anchor="middle" font-size="16" font-weight="600" fill="white">Alerta</text>
-                        <text x="900" y="300" text-anchor="middle" font-size="14" fill="#4A5568" class="step-description">
-                            <tspan x="900" dy="0">Bot Telegram</tspan>
-                            <tspan x="900" dy="18">a autoridades</tspan>
-                        </text>
                     </g>
                     
                     <!-- Final Result -->
@@ -1700,6 +1748,22 @@
                         <path d="M 980 200 L 1000 200" stroke="#4caf50" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
                     </g>
                 </svg>
+            </div>
+            
+            <!-- Process step labels -->
+            <div class="process-labels">
+                <div class="process-label">
+                    <p>4 cámaras = 360° cada 5 min</p>
+                </div>
+                <div class="process-label">
+                    <p>Detección de humo y fuego</p>
+                </div>
+                <div class="process-label">
+                    <p>2da red neuronal reduce falsos +</p>
+                </div>
+                <div class="process-label">
+                    <p>Bot Telegram a autoridades</p>
+                </div>
             </div>
         </div>
     </section>
