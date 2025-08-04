@@ -80,3 +80,12 @@ out/
 *.crt
 *.csr
 id_rsa*
+
+# Deployment packages and temporary files
+*.tar.gz
+*.zip
+.deployment/
+deploy-temp/
+
+# Test scripts (keep in development, remove for production)
+scripts/test-*.js

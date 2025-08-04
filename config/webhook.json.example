@@ -1,10 +1,11 @@
 {
   "webhook": {
+    "url": "https://ai.altermundi.net/pipelines/webhook/web-form-sai",
     "timeout": 10000,
     "retries": 3,
     "auth": {
       "type": "api-key",
-      "note": "API key should be configured in .env file as N8N_API_KEY"
+      "key": "YOUR_API_KEY_HERE"
     }
   },
   "security": {
@@ -13,8 +14,7 @@
     "timestampValidation": true
   },
   "meta": {
-    "lastUpdated": "2025-01-03T10:30:00.000Z",
-    "version": "1.1.0",
-    "note": "Sensitive data moved to .env for security"
+    "lastUpdated": "2025-07-31T23:30:00.000Z",
+    "version": "1.0.0"
   }
 }

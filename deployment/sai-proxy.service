@@ -1,0 +1,17 @@
+[Unit]
+Description=SAI Proxy Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/sai-proxy
+Environment="NODE_ENV=production"
+Environment="PORT=8003"
+EnvironmentFile=/opt/sai-proxy/.env
+ExecStart=/usr/bin/node proxy-server.js
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
