@@ -7,7 +7,11 @@
     "start": "node proxy-server.js",
     "health": "curl http://127.0.0.1:8003/api/health",
     "logs": "journalctl -u sai-proxy -f",
-    "deploy": "sudo ./scripts/deploy-proxy.sh"
+    "deploy": "sudo ./scripts/deploy-proxy.sh",
+    "test-website": "./scripts/test-website.sh",
+    "test-deployment": "./scripts/test-deployment.sh",
+    "test-quick": "./scripts/test-deployment.sh --quick",
+    "validate": "./scripts/validate-deployment.sh"
   },
   "dependencies": {
     "express": "^4.18.2",

@@ -16,10 +16,17 @@ Static website with n8n webhook integration for collecting fire alert system app
 - **Configuration**: Centralized in `config/webhook.json` + `.env`
 - **Bilingual**: Spanish (`index.html`) and English (`index-en.html`)
 
+## Testing
+
+**Deployment Validation**: `npm run validate` - Quick health checks  
+**Full Test Suite**: `npm run test-deployment` - Complete validation with server access  
+**Website Tests**: `npm run test-website` - Public-facing tests only
+
 ## Documentation
 
 - **[Project Structure](docs/STRUCTURE.md)** - Directory organization
 - **[Production Guide](docs/PRODUCTION.md)** - Production deployment info
+- **[Testing Guide](docs/TESTING.md)** - Comprehensive test documentation
 - **[Deployment History](docs/DEPLOY_HISTORY.md)** - Deployment log
 - **[Security](SECURITY.md)** - Security documentation
 
