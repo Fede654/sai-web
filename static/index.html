@@ -842,12 +842,25 @@
                 gap: 15px;
                 padding: 0 5%;
                 max-width: none;
-                margin-bottom: 30px; /* Add bottom margin to prevent overflow */
+                margin-bottom: 50px; /* Increase bottom margin to prevent overflow */
             }
             
             /* Ensure how-it-works section has enough bottom padding */
             .how-it-works {
                 padding-bottom: 100px;
+            }
+            
+            /* Prevent Nosotros background from overlapping process labels */
+            #nosotros {
+                background: none !important;
+                padding-top: 40px;
+            }
+            
+            #nosotros .section__container {
+                background: var(--background-accent);
+                border-radius: 25px 25px 0 0;
+                padding: 40px 20px 80px;
+                margin-top: 60px;
             }
             
             .process-label {
@@ -869,6 +882,22 @@
                 background: var(--background-light);
                 border-radius: 8px;
                 border: 1px solid var(--border-color);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .process-labels {
+                margin-bottom: 60px; /* Even more space on small screens */
+            }
+            
+            .how-it-works {
+                padding-bottom: 120px;
+            }
+            
+            /* Adjust for smaller screens */
+            #nosotros .section__container {
+                margin-top: 80px;
+                padding: 35px 15px 80px;
             }
         }
         
@@ -1531,23 +1560,82 @@
             }
             
             .subscription-form {
-                padding: 30px 25px;
-                margin-top: 40px;
+                padding: 25px 20px;
+                margin-top: 30px;
+                border-radius: 20px;
             }
             
             .form-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 16px;
+            }
+            
+            .form-group label {
+                margin-bottom: 8px !important;
+                font-size: 1.02em !important;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 14px 16px !important;
+                font-size: 1.02em !important;
+            }
+            
+            .form-group textarea {
+                min-height: 80px !important;
             }
             
             .contact-methods {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
+                margin: 20px 0;
+            }
+            
+            .contact-method {
+                font-size: 1.1em !important;
+                padding: 16px 20px !important;
+                border-radius: 12px;
+                margin: 0 auto;
+                max-width: 280px;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            }
+            
+            .contact-method .contact-icon {
+                font-size: 1.3em;
+                margin-right: 10px;
+            }
+            
+            .emergency-contacts {
+                margin-top: 30px;
+                padding: 20px 0;
+            }
+            
+            .emergency-contacts h3 {
+                font-size: 1.3em !important;
+                margin-bottom: 15px !important;
+                text-align: center;
             }
             
             .emergency-grid {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .emergency-contact {
+                font-size: 1.2em;
+                padding: 14px 20px;
+                border-radius: 10px;
+                font-weight: 600;
+                text-align: center;
+                box-shadow: 0 3px 12px rgba(245, 101, 101, 0.2);
+            }
+            
+            .emergency-contact .emergency-icon {
+                font-size: 1.4em;
+                margin-right: 8px;
             }
             
             .partner-list {
@@ -1616,19 +1704,48 @@
             .subscription-form,
             .mission-content,
             .contact-content {
-                padding: 20px 15px;
+                padding: 18px 15px;
+            }
+            
+            .form-grid {
+                gap: 14px !important;
+            }
+            
+            .form-group label {
+                margin-bottom: 6px !important;
+                font-size: 1em !important;
             }
             
             .form-group input,
             .form-group select,
             .form-group textarea {
-                padding: 12px 15px;
-                font-size: 1em;
+                padding: 12px 14px !important;
+                font-size: 1em !important;
+            }
+            
+            .form-group textarea {
+                min-height: 70px !important;
             }
             
             .contact-method {
-                font-size: 1.1em;
-                padding: 15px 20px;
+                font-size: 1.05em !important;
+                padding: 14px 18px !important;
+                max-width: 260px;
+            }
+            
+            .emergency-contact {
+                font-size: 1.1em !important;
+                padding: 12px 18px !important;
+            }
+            
+            .emergency-contacts {
+                margin-top: 25px !important;
+                padding: 15px 0 !important;
+            }
+            
+            .emergency-contacts h3 {
+                font-size: 1.2em !important;
+                margin-bottom: 12px !important;
             }
         }
         
@@ -1878,8 +1995,8 @@
                     Cada proyecto que desarrollamos busca generar un impacto positivo real. SAI es nuestra respuesta tecnológica a la creciente problemática de los incendios forestales, combinando innovación, sostenibilidad y compromiso social.
                 </p>
                 
-                <div style="margin-top: 40px;">
-                    <a href="https://altermundi.net" target="_blank" class="btn btn-outline" style="margin-right: 20px;">
+                <div style="margin-top: 40px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <a href="https://altermundi.net" target="_blank" class="btn btn-outline">
                         <span class="btn-icon">🌐</span>
                         Conocé AlterMundi
                     </a>
