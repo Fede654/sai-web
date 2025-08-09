@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sai.altermundi.net/sitemap.xml
+
+# Block old or test URLs if any
+Disallow: /test/
+Disallow: /dev/
+Disallow: *.json
