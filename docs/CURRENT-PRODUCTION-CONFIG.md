@@ -153,9 +153,9 @@ N8N_API_KEY=[secret-api-key]
 4. **Update HTML**: Include session-manager.js in form pages
 5. **Start service**: `systemctl start sai-proxy`
 
-### Configuration Updates Needed in Scripts
-- ✅ **Migration script**: Updated to use `sai` instead of `firebot`
-- ✅ **Install script**: Updated nginx site name
+### Configuration Updates Made
+- ✅ **Migration script**: Removed (temporal fix already applied manually)
+- ✅ **Install script**: For fresh installations only
 - ✅ **Documentation**: Reflects current production state
 
 ## Monitoring
