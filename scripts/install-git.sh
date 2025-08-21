@@ -10,7 +10,7 @@ set -e
 REPO_URL="https://github.com/Fede654/sai-web.git"
 WEB_ROOT="/var/www/sai"
 BACKUP_DIR="/var/backups/sai-web"
-NGINX_SITE="sai.altermundi.net"
+NGINX_SITE="sai"
 DOMAIN="sai.altermundi.net"
 SERVICE_NAME="sai-proxy"
 LOG_FILE="/var/log/sai-install.log"
